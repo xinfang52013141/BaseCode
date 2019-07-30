@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.sz.lxb.modules.lxb.dao.LgorgmapDao">
+<mapper namespace="com.sz.lxb.modules.lxb.dao.xxxorgmapDao">
 
-	<select id="getlgorgBydayw" resultType="com.sz.lxb.modules.lxb.entity.LgorgInfo">           
+	<select id="getxxxorgBydayw" resultType="com.sz.lxb.modules.lxb.entity.xxxorgInfo">           
     select 
     t.tmw as tmw,
     t.org_name as orgname,
@@ -15,14 +15,14 @@
     and t.orgtype like concat('%',concat(#{1},'%'))
     and trim(t.dtype)='天' ORDER BY t.tmw asc
 	</select>
-	<select id="getlgorgBydaywdate" resultType="String">           
+	<select id="getxxxorgBydaywdate" resultType="String">           
     select DISTINCT t.tmw as tmw fromxxx t 
     where  to_date(t.tmw,'yyyy-MM-dd')&gt;=to_date(to_char(to_date(#{0},'yyyy-MM-dd')-7,'yyyy-MM-dd'),'yyyy-MM-dd') 
     AND to_date(t.tmw,'yyyy-MM-dd')&lt;=to_date(#{0},'yyyy-MM-dd')
     and trim(t.dtype)='天' ORDER BY t.tmw ASC 
 	</select>
 
-	<select id="getlgorgBydaym" resultType="com.sz.lxb.modules.lxb.entity.LgorgInfo">           
+	<select id="getxxxorgBydaym" resultType="com.sz.lxb.modules.lxb.entity.xxxorgInfo">           
     select 
     t.tmw as tmw,
     t.org_name as orgname,
@@ -35,14 +35,14 @@
     and t.orgtype like concat('%',concat(#{1},'%'))
     and trim(t.dtype)='天' ORDER BY t.tmw asc
 	</select>
-	<select id="getlgorgBydaymdate" resultType="String">           
+	<select id="getxxxorgBydaymdate" resultType="String">           
     select DISTINCT t.tmw as tmw fromxxx t 
     where  to_date(t.tmw,'yyyy-MM-dd')&gt;=to_date(to_char(to_date(#{0},'yyyy-MM-dd')-30,'yyyy-MM-dd'),'yyyy-MM-dd') 
     AND to_date(t.tmw,'yyyy-MM-dd')&lt;=to_date(#{0},'yyyy-MM-dd')
     and trim(t.dtype)='天' ORDER BY t.tmw ASC 
 	</select>
 
-	<select id="getlgorgBymon" resultType="com.sz.lxb.modules.lxb.entity.LgorgInfo">           
+	<select id="getxxxorgBymon" resultType="com.sz.lxb.modules.lxb.entity.xxxorgInfo">           
     select 
     t.tmw as tmw,
     t.org_name as orgname,
@@ -55,14 +55,14 @@
     and t.orgtype like concat('%',concat(#{1},'%'))
     and trim(t.dtype)='月' ORDER BY t.tmw asc
 	</select>
-	<select id="getlgorgBymondate" resultType="String">           
+	<select id="getxxxorgBymondate" resultType="String">           
     select DISTINCT t.tmw as tmw fromxxx t 
     where to_char(to_date(t.tmw,'yyyy-MM'),'yyyy-MM')&gt;=to_char(to_date(#{0},'yyyy-MM-dd')-365,'yyyy-MM')
     AND to_char(to_date(t.tmw,'yyyy-MM'),'yyyy-MM')&lt;=to_char(to_date(#{0},'yyyy-MM-dd'),'yyyy-MM')
     and trim(t.dtype)='月' ORDER BY t.tmw asc
 	</select>
 
-	<select id="getlgorgByweek" resultType="com.sz.lxb.modules.lxb.entity.LgorgInfo">           
+	<select id="getxxxorgByweek" resultType="com.sz.lxb.modules.lxb.entity.xxxorgInfo">           
     select 
     t.tmw as tmw,
     t.org_name as orgname,
@@ -75,14 +75,14 @@
     and t.orgtype like concat('%',concat(#{1},'%'))
     and trim(t.dtype)='周' ORDER BY t.tmw asc
 	</select>
-	<select id="getlgorgByweekdate" resultType="String">           
+	<select id="getxxxorgByweekdate" resultType="String">           
     select DISTINCT t.tmw as tmw fromxxx t 
     where t.tmw&gt;=to_char(to_date(#{0},'yyyy-MM-dd')-182,'yyyy-IW')
     AND t.tmw&lt;=to_char(to_date(#{0},'yyyy-MM-dd'),'yyyy-IW')
     and trim(t.dtype)='周' ORDER BY t.tmw asc
 	</select>
 
-	<select id="getlgorgdataBydayw" resultType="hashMap" parameterType="String">
+	<select id="getxxxorgdataBydayw" resultType="hashMap" parameterType="String">
    select 
     t.tmw as tmw,
     t.org_name as orgname,
@@ -94,7 +94,7 @@
     and trim(t.dtype)='天' ORDER BY t.tmw asc
 	</select>
 
-	<select id="getlgorgdataBydaym" resultType="hashMap" parameterType="String">
+	<select id="getxxxorgdataBydaym" resultType="hashMap" parameterType="String">
      select 
     t.tmw as tmw,
     t.org_name as orgname,
@@ -106,7 +106,7 @@
     and trim(t.dtype)='天' ORDER BY t.tmw asc
 	</select>
 
-	<select id="getlgorgdataBymon" resultType="hashMap" parameterType="String">
+	<select id="getxxxorgdataBymon" resultType="hashMap" parameterType="String">
       select 
     t.tmw as tmw,
     t.org_name as orgname,
@@ -118,7 +118,7 @@
     and trim(t.dtype)='月' ORDER BY t.tmw asc
    </select>
 
-	<select id="getlgorgdataByweek" resultType="hashMap" parameterType="String">
+	<select id="getxxxorgdataByweek" resultType="hashMap" parameterType="String">
     select 
     t.tmw as tmw,
     t.org_name as orgname,

@@ -10,16 +10,16 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.sz.xxx.common.service.BaseService;
-import com.sz.xxx.modules.xxx.dao.LgorgmapDao;
+import com.sz.xxx.modules.xxx.dao.xxxorgmapDao;
 import com.sz.xxx.modules.xxx.dao.GetMaxDateDao;
-import com.sz.xxx.modules.xxx.entity.LgorgInfo;
+import com.sz.xxx.modules.xxx.entity.xxxorgInfo;
 
 @Service
 @Transactional(readOnly = true)
-public class LgorgmapService extends BaseService {
+public class xxxorgmapService extends BaseService {
 
 	@Autowired
-	private LgorgmapDao LgorgmapDao;
+	private xxxDao xxxorgmapDao;
 	@Autowired
 	private GetMaxDateDao maxDateDao;
 
@@ -30,11 +30,11 @@ public class LgorgmapService extends BaseService {
 	 * @param datetype
 	 * @return
 	 */
-	public Map<String, Object> getlgorgmap(String begindate, String datetype,String orgtype) {
+	public Map<String, Object> getxxxorgmap(String begindate, String datetype,String orgtype) {
 		Map<String, Object> map = new HashMap<String, Object>();
 		List<HashMap<String, Object>> maxdate = new ArrayList<HashMap<String, Object>>();
 		List<String> mList = new ArrayList<String>();
-		maxdate = maxDateDao.getlgmaxdate();// xxxx
+		maxdate = maxDateDao.getxxxmaxdate();// xxxx
 		if (maxdate != null && maxdate.size() > 0) {
 			for (HashMap<String, Object> hashMap : maxdate) {
 				String dname = hashMap.get("VDATE") + "";
@@ -42,20 +42,20 @@ public class LgorgmapService extends BaseService {
 			}
 		}
 		begindate = mList.get(0).toString();
-		List<LgorgInfo> list = new ArrayList<LgorgInfo>();
+		List<xxxorgInfo> list = new ArrayList<xxxorgInfo>();
 		List<String> timeLineData = new ArrayList<String>();
 		if (datetype.indexOf("最近一周") != -1) {
-			timeLineData = this.LgorgmapDao.getlgorgBydaywdate(begindate);
-			list = this.LgorgmapDao.getlgorgBydayw(begindate,orgtype);
+			timeLineData = this.xxxorgmapDao.getxxxorgBydaywdate(begindate);
+			list = this.xxxorgmapDao.getxxxorgBydayw(begindate,orgtype);
 		} else if (datetype.indexOf("最近一月") != -1) {
-			timeLineData = this.LgorgmapDao.getlgorgBydaymdate(begindate);
-			list = this.LgorgmapDao.getlgorgBydaym(begindate,orgtype);
+			timeLineData = this.xxxorgmapDao.getxxxorgBydaymdate(begindate);
+			list = this.xxxorgmapDao.getxxxorgBydaym(begindate,orgtype);
 		} else if (datetype.indexOf("按周进行") != -1) {
-			timeLineData = this.LgorgmapDao.getlgorgByweekdate(begindate);
-			list = this.LgorgmapDao.getlgorgByweek(begindate,orgtype);
+			timeLineData = this.xxxorgmapDao.getxxxorgByweekdate(begindate);
+			list = this.xxxorgmapDao.getxxxorgByweek(begindate,orgtype);
 		} else if (datetype.indexOf("按月进行") != -1) {
-			timeLineData = this.LgorgmapDao.getlgorgBymondate(begindate);
-			list = this.LgorgmapDao.getlgorgBymon(begindate,orgtype);
+			timeLineData = this.xxxorgmapDao.getxxxorgBymondate(begindate);
+			list = this.xxxorgmapDao.getxxxorgBymon(begindate,orgtype);
 		}
 		map = handleInfo(timeLineData, list, map);
 		return map;
@@ -69,7 +69,7 @@ public class LgorgmapService extends BaseService {
 	 * @param map
 	 * @return
 	 */
-	private Map<String, Object> handleInfo(List<String> timeLineData, List<LgorgInfo> list, Map<String, Object> map) {
+	private Map<String, Object> handleInfo(List<String> timeLineData, List<xxxorgInfo> list, Map<String, Object> map) {
 		List<Object> optionsList = new ArrayList<Object>();
 		for (int i = 0; i < timeLineData.size(); i++) {
 			String vdate = (String) timeLineData.get(i);
@@ -80,11 +80,11 @@ public class LgorgmapService extends BaseService {
 			for (int j = 0; j < list.size(); j++) {
 				Map<String, Object> seriesDataMap = new HashMap<String, Object>();
 				List<String> valueList = new ArrayList<String>();
-				if (vdate.equals(((LgorgInfo) list.get(j)).getTmw())) {
-						valueList.add(((LgorgInfo) list.get(j)).getOrganlongitude());
-						valueList.add(((LgorgInfo) list.get(j)).getOrganlatitude());
-						valueList.add(((LgorgInfo) list.get(j)).getOrigin());
-						seriesDataMap.put("name", ((LgorgInfo) list.get(j)).getOrgname());
+				if (vdate.equals(((xxxorgInfo) list.get(j)).getTmw())) {
+						valueList.add(((xxxorgInfo) list.get(j)).getOrganlongitude());
+						valueList.add(((xxxorgInfo) list.get(j)).getOrganlatitude());
+						valueList.add(((xxxorgInfo) list.get(j)).getOrigin());
+						seriesDataMap.put("name", ((xxxorgInfo) list.get(j)).getOrgname());
 						seriesDataMap.put("value", valueList);
 						dataList.add(seriesDataMap);
 						if (list.size() > 1) {
@@ -103,11 +103,11 @@ public class LgorgmapService extends BaseService {
 		System.out.println(map);
 		return map;
 	}
-	public Map<String, Object> getlgorgdata(String begindate,String datetype,String orgname){
+	public Map<String, Object> getxxxorgdata(String begindate,String datetype,String orgname){
 		Map<String, Object> map=new HashMap<String, Object>();
 		List<HashMap<String, Object>> maxdate=new ArrayList<HashMap<String, Object>>();
 		List<String> mList=new ArrayList<String>();
-		maxdate=maxDateDao.getlgmaxdate();//xxx
+		maxdate=maxDateDao.getxxxmaxdate();//xxx
 		if(maxdate!=null&&maxdate.size()>0){
 			for (HashMap<String, Object> hashMap : maxdate) {
 				String dname=hashMap.get("VDATE")+"";
@@ -120,16 +120,16 @@ public class LgorgmapService extends BaseService {
 		List<String> aList=new ArrayList<String>();
 		List<HashMap<String, Object>> ls=new ArrayList<HashMap<String, Object>>();		
 		if(datetype.indexOf("最近一周")!=-1){
-		ls=LgorgmapDao.getlgorgdataBydayw(orgname,begindate);//xxx
+		ls=xxxorgmapDao.getxxxorgdataBydayw(orgname,begindate);//xxx
 		}
 		else if(datetype.indexOf("最近一月")!=-1){
-				ls=LgorgmapDao.getlgorgdataBydaym(orgname,begindate);//xxx
+				ls=xxxorgmapDao.getxxxorgdataBydaym(orgname,begindate);//xxx
 		}
 		else if(datetype.indexOf("按周进行")!=-1){
-				ls=LgorgmapDao.getlgorgdataByweek(orgname,begindate);//xxx
+				ls=xxxorgmapDao.getxxxorgdataByweek(orgname,begindate);//xxx
 		}
 		else if(datetype.indexOf("按月进行")!=-1){
-				ls=LgorgmapDao.getlgorgdataBymon(orgname,begindate);//xxx
+				ls=xxxorgmapDao.getxxxorgdataBymon(orgname,begindate);//xxx
 		}
 		if(ls!=null&&ls.size()>0){
 			for (HashMap<String, Object> hashMap : ls) {
