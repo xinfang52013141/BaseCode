@@ -1,4 +1,4 @@
-﻿package com.sz.xxx.modules.xxx.service;
+﻿package com.xxx.xxx.modules.xxx.service;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -9,10 +9,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.sz.xxx.common.service.BaseService;
-import com.sz.xxx.modules.xxx.dao.xxxorgmapDao;
-import com.sz.xxx.modules.xxx.dao.GetMaxDateDao;
-import com.sz.xxx.modules.xxx.entity.xxxorgInfo;
+import com.xxx.xxx.common.service.BaseService;
+import com.xxx.xxx.modules.xxx.dao.xxxorgmapDao;
+import com.xxx.xxx.modules.xxx.dao.GetMaxDateDao;
+import com.xxx.xxx.modules.xxx.entity.xxxorgInfo;
 
 @Service
 @Transactional(readOnly = true)

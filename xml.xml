@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.sz.lxb.modules.lxb.dao.xxxorgmapDao">
+<mapper namespace="com.xxx.lxb.modules.lxb.dao.xxxorgmapDao">
 
-	<select id="getxxxorgBydayw" resultType="com.sz.lxb.modules.lxb.entity.xxxorgInfo">           
+	<select id="getxxxorgBydayw" resultType="com.xxx.lxb.modules.lxb.entity.xxxorgInfo">           
     select 
     t.tmw as tmw,
     t.org_name as orgname,
@@ -22,7 +22,7 @@
     and trim(t.dtype)='天' ORDER BY t.tmw ASC 
 	</select>
 
-	<select id="getxxxorgBydaym" resultType="com.sz.lxb.modules.lxb.entity.xxxorgInfo">           
+	<select id="getxxxorgBydaym" resultType="com.xxx.lxb.modules.lxb.entity.xxxorgInfo">           
     select 
     t.tmw as tmw,
     t.org_name as orgname,
@@ -42,7 +42,7 @@
     and trim(t.dtype)='天' ORDER BY t.tmw ASC 
 	</select>
 
-	<select id="getxxxorgBymon" resultType="com.sz.lxb.modules.lxb.entity.xxxorgInfo">           
+	<select id="getxxxorgBymon" resultType="com.xxx.lxb.modules.lxb.entity.xxxorgInfo">           
     select 
     t.tmw as tmw,
     t.org_name as orgname,
@@ -62,7 +62,7 @@
     and trim(t.dtype)='月' ORDER BY t.tmw asc
 	</select>
 
-	<select id="getxxxorgByweek" resultType="com.sz.lxb.modules.lxb.entity.xxxorgInfo">           
+	<select id="getxxxorgByweek" resultType="com.xxx.lxb.modules.lxb.entity.xxxorgInfo">           
     select 
     t.tmw as tmw,
     t.org_name as orgname,
